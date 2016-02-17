@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<solver>
+	<!-- Define the model -->
+	<!-- <scanAnnotatedClasses /> -->
+	<solutionClass>walk.domain.OrderScheduling</solutionClass> 
+	<entityClass>walk.domain.Scheduling</entityClass> 
+
+	<!-- Define the score function -->
+	<scoreDirectorFactory>
+		<scoreDefinitionType>HARD_SOFT</scoreDefinitionType>
+		<easyScoreCalculatorClass>walk.score.ScoreCalculator</easyScoreCalculatorClass>
+	</scoreDirectorFactory>
+
+	<!-- Configure the optimization algorithm(s) -->
+	<termination>
+		<terminationCompositionStyle>OR</terminationCompositionStyle>
+		<minutesSpentLimit>2</minutesSpentLimit>
+		<bestScoreLimit>0hard/0soft</bestScoreLimit>
+	</termination>
+
+	<constructionHeuristic>
+		<constructionHeuristicType>FIRST_FIT</constructionHeuristicType>
+	</constructionHeuristic>
+	
+	<localSearch>
+		<changeMoveSelector/>
+		<localSearchType>HILL_CLIMBING</localSearchType>
+	</localSearch>
+</solver>
